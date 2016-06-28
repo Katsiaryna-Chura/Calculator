@@ -15,11 +15,18 @@ namespace TestMathematics
         int a;
         int b;
 
-        public Tests()
+        [TestInitialize]
+        public void TestInit()
         {
             c = new Calculator();
             a = Int32.Parse(TestData.FirstNumber);
             b = Int32.Parse(TestData.SecondNumber);
+        }
+
+        [TestCleanup]
+        public void testClean()
+        {
+            c = null;
         }
 
         [TestMethod]
